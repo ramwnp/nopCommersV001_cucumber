@@ -77,8 +77,7 @@ formatter.match({
   "location": "Steps.page_title_should_be(String)"
 });
 formatter.result({
-  "error_message": "org.junit.ComparisonFailure: expected:\u003c[nopCommerce demo store. Login]\u003e but was:\u003c[Just a moment...]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat stepDefinitions.Steps.page_title_should_be(Steps.java:43)\r\n\tat ✽.page title should be \"nopCommerce demo store. Login\"(file:Features/Login.feature:9)\r\n",
-  "status": "failed"
+  "status": "passed"
 });
 formatter.step({
   "name": "close browser",
@@ -88,6 +87,6 @@ formatter.match({
   "location": "Steps.close_browser()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 });

@@ -1,11 +1,11 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Customers.feature");
 formatter.feature({
-  "name": "Login",
+  "name": "Customers",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Succesfull Login with Valid Credentials",
+  "name": "Add New Customer",
   "description": "",
   "keyword": "Scenario"
 });
@@ -50,31 +50,81 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "page title should be \"Dashboard / nopCommerce administration\"",
+  "name": "User can view Dashboard",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "Steps.page_title_should_be(String)"
+  "location": "Steps.user_can_view_Dashboard()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user click on Logout link",
+  "name": "User Click on customers menu",
   "keyword": "When "
 });
 formatter.match({
-  "location": "Steps.user_click_on_Logout_link()"
+  "location": "Steps.user_Click_on_customers_menu()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "page title should be \"nopCommerce demo store. Login\"",
+  "name": "click on customers menu item",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Steps.click_on_customers_menu_item()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on Add new button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Steps.click_on_Add_new_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user can view Add new customer page",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "Steps.page_title_should_be(String)"
+  "location": "Steps.user_can_view_Add_new_customer_page()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user enter customer info",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "Steps.user_enter_customer_info()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on save button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "Steps.click_on_save_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user can view confirmation message \"The new customer has been added succesfully\"",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "Steps.user_can_view_confirmation_message(String)"
 });
 formatter.result({
   "status": "passed"

@@ -2,14 +2,12 @@ package stepDefinitions;
 
 import cucumber.api.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObjects.AddCustomerPage;
 import pageObjects.LoginPage;
 
-public class Steps {
-
-    public WebDriver driver;
-    public LoginPage lp;
+public class Steps extends Base{
 
     @Given("User Launch Crome browser")
     public void user_Launch_Crome_browser() {
@@ -21,6 +19,7 @@ public class Steps {
     @When("user opens URL {string}")
     public void user_opens_URL(String url) {
         driver.get(url);
+        driver.manage().window().maximize();
     }
 
     @When("user enters Email as {string} and password as {string}")
@@ -53,6 +52,68 @@ public class Steps {
     @Then("close browser")
     public void close_browser() {
         driver.quit();
+    }
+
+    //Cutomer feature step definitions....
+
+    @Then("User can view Dashboard")
+    public void user_can_view_Dashboard() {
+        addCust =new AddCustomerPage(driver);
+        Assert.assertEquals("Dashboard / nopCommerce administration",addCust.getPageTitile());
+    }
+
+    @When("User Click on customers menu")
+    public void user_Click_on_customers_menu() throws InterruptedException {
+        Thread.sleep(3000);
+        addCust.clickOnCustomersMenu();
+    }
+
+    @When("click on customers menu item")
+    public void click_on_customers_menu_item() throws InterruptedException {
+        Thread.sleep(2000);
+        addCust.clickOnCustomersMenuItem();
+    }
+
+    @When("click on Add new button")
+    public void click_on_Add_new_button() throws InterruptedException {
+        addCust.clickOnAddNewButton();
+        Thread.sleep(2000);
+    }
+
+    @Then("user can view Add new customer page")
+    public void user_can_view_Add_new_customer_page() {
+        Assert.assertEquals("Add a new customer / nopCommerce administration",addCust.getPageTitile());
+    }
+
+    @When("user enter customer info")
+    public void user_enter_customer_info() throws InterruptedException {
+        String email = randomString()+"@gmail.com";
+        addCust.setEmail(email);
+        addCust.setPassword("test123");
+
+        //Registered default
+        //the customer can not be in both 'Guests' and 'Registered role
+        // Add the customer to 'Guests' or 'Registered' customer role
+        addCust.setCustomerRoles("Administrators");
+        Thread.sleep(3000);
+        addCust.setManagerOfVendor("Vendor 2");
+        addCust.setGender("Male");
+        addCust.setFirstName("RAM");
+        addCust.setLastName("Gannoj");
+        addCust.setCompanyName("busyQA");
+        addCust.setAdminContent("This is for testing");
+    }
+
+    @When("click on save button")
+    public void click_on_save_button() throws InterruptedException {
+        addCust.clickOnSaveButton();
+        Thread.sleep(2000);
+    }
+
+    @Then("user can view confirmation message {string}")
+    public void user_can_view_confirmation_message(String msg) {
+        Assert.assertTrue(driver.findElement(By.tagName("body")).getText()
+                .contains("The new customer has been added successfully."));
     }
 
 }

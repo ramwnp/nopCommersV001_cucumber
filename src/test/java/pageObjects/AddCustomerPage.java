@@ -18,8 +18,8 @@ public class AddCustomerPage {
     }
     //Elements capture
     By lnkCustomers_menu = By.xpath("//a[@href='#']//p[contains(text(),'Customers')]");
-    By lnkCustomers_menuitem = By.xpath("//a[@href='/Admin/Customer/List']//p[contains(text(),'Customers')]");
-    By btnAddNew = By.xpath("//i[@class='fas fa-square-plus']");
+    By lnkCustomers_menuitem = By.xpath("//a[@href='/Admin/Customer/List']");
+    By btnAddNew = By.xpath("//a[normalize-space()='Add new']");
     By txtEmail = By.xpath("//input[@id='Email']");
     By txtPassword = By.xpath("//input[@id='Password']");
     By txtCustomerRoles = By.xpath("//select[@id='SelectedCustomerRoleIds']");

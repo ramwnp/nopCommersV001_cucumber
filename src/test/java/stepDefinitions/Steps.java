@@ -94,7 +94,7 @@ public class Steps extends Base{
         //Registered default
         //the customer can not be in both 'Guests' and 'Registered role
         // Add the customer to 'Guests' or 'Registered' customer role
-        addCust.setCustomerRoles("Administrators");
+        addCust.setCustomerRoles("Vendors");
         Thread.sleep(3000);
         addCust.setManagerOfVendor("Vendor 2");
         addCust.setGender("Male");

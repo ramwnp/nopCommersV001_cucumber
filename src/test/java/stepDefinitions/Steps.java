@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.AddCustomerPage;
 import pageObjects.LoginPage;
+import pageObjects.SearchCustomerPage;
 
 public class Steps extends Base{
 
@@ -116,4 +117,23 @@ public class Steps extends Base{
                 .contains("The new customer has been added successfully."));
     }
 
+    //steps for searching a customer by using EmailID..........
+    @When("enter Customer EmailID")
+    public void enter_Customer_EmailID() {
+        searchCustomerPage = new SearchCustomerPage(driver);
+        searchCustomerPage.setEmail("arthur_holmes@nopCommerce.com");
+    }
+
+    @When("click On Search Button")
+    public void click_On_Search_Button() throws InterruptedException {
+        Thread.sleep(5000);
+        searchCustomerPage.clickSearch();
+    }
+
+    @Then("user Should Found Email In Search Table")
+    public void user_Should_Found_Email_In_Search_Table() {
+        boolean status = searchCustomerPage.searchCustomersByEmailID("arthur_holmes@nopCommerce.com");
+        System.out.println("33333333333333"+status);
+        Assert.assertEquals(true,status);
+    }
 }

@@ -70,6 +70,7 @@ public class AddCustomerPage {
         if (role.equals("Administrators")){
             Thread.sleep(3000);
             //listItem = ldriver.findElement(lstitemAdministrators);
+            //drpCusRole.deselectAll();
             drpCusRole.selectByVisibleText("Administrators");
         }else if (role.equals("Registered")){
             //listItem = ldriver.findElement(lstitemRegistered);
@@ -119,7 +120,5 @@ public class AddCustomerPage {
     public void clickOnSaveButton(){
         ldriver.findElement(btnSave).click();
     }
-    public void userCanViewConfirmationMessage(String string){
-
-    }
+    
 }

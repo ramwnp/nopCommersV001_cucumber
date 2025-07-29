@@ -91,7 +91,7 @@ public class SearchCustomerPage {
         txtEmail.sendKeys(email);
     }
     public void setFirstName(String firstName){
-        waitHelper.waiteForElement(txtLastName,30);
+        waitHelper.waiteForElement(txtFirstName,30);
         txtFirstName.clear();
         txtFirstName.sendKeys(firstName);
     }
@@ -111,11 +111,11 @@ public class SearchCustomerPage {
         return tablecolumns.size();
     }
     public boolean searchCustomersByEmailID(String email){
-        //System.out.println("$$$$$$$$$$$$$$$$$$$$$$$"+email);
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$"+email);
         boolean flag=false;
-        for (int i = 1; i < getNoOfRows(); i++) {
-            String emailId = table.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr["+i+"]/td[2]")).getText();
-            //System.out.println(emailId+"@$#@@@@@@@@@@@@@@####");
+        for (int i = 1; i <= getNoOfRows(); i++) {
+            String emailId = table.findElement(By.xpath("//table[@id='customers-grid']/tbody/tr["+i+"]/td[2]")).getText();
+            System.out.println(emailId+"@$#@@@@@@@@@@@@@@####");
             if (emailId.equals(email)){
                 //System.out.println(emailId+"$$$$$$$$$$$$$$$$$$$$$$$"+email);
                 flag=true;

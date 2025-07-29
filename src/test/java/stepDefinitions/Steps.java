@@ -121,7 +121,7 @@ public class Steps extends Base{
     @When("enter Customer EmailID")
     public void enter_Customer_EmailID() {
         searchCustomerPage = new SearchCustomerPage(driver);
-        searchCustomerPage.setEmail("arthur_holmes@nopCommerce.com");
+        searchCustomerPage.setEmail("AOtLq@gmail.com");
     }
 
     @When("click On Search Button")
@@ -132,7 +132,7 @@ public class Steps extends Base{
 
     @Then("user Should Found Email In Search Table")
     public void user_Should_Found_Email_In_Search_Table() {
-        boolean status = searchCustomerPage.searchCustomersByEmailID("arthur_holmes@nopCommerce.com");
+        boolean status = searchCustomerPage.searchCustomersByEmailID("AOtLq@gmail.com");
         System.out.println("33333333333333"+status);
         Assert.assertEquals(true,status);
     }
